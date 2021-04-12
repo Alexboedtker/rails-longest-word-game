@@ -1,20 +1,23 @@
+require 'open-uri'
+
 class GamesController < ApplicationController
   def new
-    @letters = Array.new(10) { ('A'..'Z').to_a.sample }
+    @letters = ('A'..'Z').to_a.sample(10)
   end
 
   def score
     @word = params[:word]
     @score = nil
+    @letters = params[:letters].split('')
 
     if included?(@word.upcase, @letters)
       if english_word?(@word)
-        @score = "Congratulations! ${word} is a valid English word!"
+        @score = "Congratulations! #{@word} is a valid English word!"
       else
-        @score = "Sorry but ${@word} does not seem to be a valid English word..."
+        @score = "Sorry but #{@word} does not seem to be a valid English word..."
       end
     else
-      @score = "Sorry but ${@word} can't be built out of ${@letters}"
+      @score = "Sorry but #{@word} can't be built out of #{@letters}"
     end
   end
 
@@ -25,6 +28,6 @@ class GamesController < ApplicationController
   end
 
   def included?(attempt, grid)
-    aattempt.chars.all? { |letter| attempt.count(letter) <= grid.count(letter) }
+    attempt.chars.all? { |letter| attempt.count(letter) <= grid.count(letter) }
   end
 end

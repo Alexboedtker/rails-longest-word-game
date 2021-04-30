@@ -1,24 +1,8 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Second Rails Challenge during the Le Wagon bootcamp:
 
-Things you may want to cover:
+Objective: Create a simple app based off of the french game Des Chiffres et des Lettres or the english version Countdown!
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1.) Create a page to display the game settings (random letters), with a form for the user to type a word. A button to submit this form.
+2.) Create a page receiving this form and responding to the user based on word submitted.
